@@ -9,6 +9,7 @@
         {
             margin: auto;
             border: 0.5px dotted black;
+            background-color: antiquewhite;
             padding: 18px;
             width: 50%;
         }
@@ -28,20 +29,37 @@
            
             text-align: center;
         }
+        button
+        {
+            border: 0px solid ;
+            padding: 10px;
+            margin: auto;
+        }
     </style>
     <title>Ali Bromand</title>
-    <script>
-        alert("خوش امدید");
-    </script>
 </head>
 <body>
-    <div style="background-color: red;">
-        <div style="background-color: blue;">
             <div class="parent">
                 <h2 id="name" >علی برومند</h2>
                 <h2>Software Engineer at Part</h2>
+                <button id="btnChangeColor">تغیر رنگ</button>
             </div>
-        </div>
-    </div>
+            <script>
+                alert("خوش امدید");
+        
+                function getRandomColor() 
+                {
+                    var letters = '0123456789ABCDEF';
+                    var color = '#';
+                    for (var i = 0; i < 6; i++) {
+                        color += letters[Math.floor(Math.random() * 16)];
+                    }
+                    return color;
+                }
+                let name = document.getElementById("name");
+                let btn = document.getElementById("btnChangeColor");
+                btn.onclick = function (){name.style.color = getRandomColor();};
+        
+            </script>
 </body>
 </html>

@@ -8,10 +8,7 @@
     <title>S05</title>
 
     <style>
-        input[type="button"] 
-        {
-            
-        } 
+
     </style>
 </head>
 <body>
@@ -25,14 +22,20 @@
 
 
     <script>
-
+        "use strict"
         let Persons = {};
 
         let lastBtn = document.getElementById("btn");
         
+        console.log(lastBtn);
+
         function addNewInputs () {
             document.getElementById("logAll").disabled = false;
-            document.getElementById("pattern").innerHTML += "<br/><input type='text' class ='fname'><input class='lname' type='text'><input type='button' value='+' id='btn'></br>";     
+            document.getElementById("pattern").innerHTML += "</br>"
+            +"<input type='text' class ='fname'>"
+            +"<input class='lname' type='text'>"
+            +"<input type='button' value='+' id='btn'>"
+            +"</br>";     
             document.getElementById("btn").disabled = true  ;
             document.getElementById("btn").id = "btn_disabled"  ;
             lastBtn = document.getElementById("btn");
@@ -51,8 +54,10 @@
         {
             let allFirstNames = document.getElementsByClassName("fname");
             let allLastNames  = document.getElementsByClassName("lname");
-
-
+            for (let index = 0; index < allFirstNames.length; ++index) {
+                Persons[index] = {"First name :" : allLastNames[index].value , "Last name :" : allLastNames[index].value};
+            }
+            console.log (Persons);
         });
 
     </script>

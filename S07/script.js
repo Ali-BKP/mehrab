@@ -27,6 +27,7 @@ function index (response)
         {
             response.writeHead(200 , headers.html);
             response.write(data);
+            console.log("readfile was successful");
             response.end();    
         }
     })

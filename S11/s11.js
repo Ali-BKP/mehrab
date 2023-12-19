@@ -1,8 +1,12 @@
+const axios = require('axios');
+
+console.log(axios.isCancel('something'));
+
 
 let http = require('http');
 let fs = require('fs');
 let insertToFile = require("./insertToFile");
-let port = 8037;
+let port = 8082;
 let server = http.createServer(requestHandler);
 
 server.listen(port);
@@ -21,10 +25,23 @@ function write(response, badaneh, type){
 }
 
 function funcx(request, response, data) {
-    console.log('this is x');
-    write(response, 'salam xxxxx', 'text');
-    console.log("Data inside x", data.length);
+    // console.log('this is x');
+    // write(response, 'salam xxxxx', 'text');
+    // console.log("Data inside x", data.length);
 
+
+    axios.get('http://127.0.0.1:8081/x', data)
+  .then(function (response2) {
+    // handle success
+    console.log("vasati response");
+    write(response, "xxx"+response2.data,"text");
+    console.log("vasati", response2.data);
+  })
+  .catch(function (error) {
+    // handle error
+    // console.log("Error");
+    // console.log("error");
+  })
     // response.writeHead(200, headers.text);
     // response.write('salam xxxxx');
     // response.end();
